@@ -1,5 +1,5 @@
 # Subtree Analysis
-This readme will describe the subtree analysis that was performed in "Predicting antimicrobial resistance using conserved genes" by Nguyen et al.  It is intended to aid in the clarity and reproducibility of the analysis. 
+This readme will describe the subtree analysis that was performed in *Predicting antimicrobial resistance using conserved genes* by Nguyen et al.  It is intended to aid in the clarity and reproducibility of the analysis. 
 
 The scripts in this repo have one major dependency, it is a perl module for manipulating Newick formatted trees that was written by Gary Olsen, and was originally released as part of the code base for the SEED project. The module is called ```gjonewicklib.pm```.  The best way to get this module is to download the PATRIC command line interface application. I will use another script from that distribution to render the trees, but it is not a prerequisite. The other modules used by the perl scripts are GitOpt::Long and Data::Dumper, which are pretty standard for perl.
 
