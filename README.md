@@ -74,7 +74,11 @@ Here are they are:
 ( ( ( ( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550) 0.943: 0.000550, ( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100) 0.342: 0.000550) 1.000: 0.004590, ( SRR1534824: 0.000550, ( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100) 0.835: 0.001100) 1.000: 0.003840) 1.000: 0.001270, ( SRR2637879: 0.000550, ( SRR3664639: 0.000550, ( SRR3295726: 0.000550, SRR3056905: 0.000550) 0.000: 0.000550) 0.000: 0.001100) 0.832: 0.006220);
 ```
   
-The next program reads this file of all subtrees and 
+The next program reads this file of all subtrees and creates a directory that lists each tip as a member of a subtree.  Subtrees are defined using a distance threshold.  The "distance" of each subtree is defined as the maximium tip distance, and the most inclusive subtree that can be built at a given distance is used. The tips, and their corresponding  "clade" or subtree is returned in the directory.  To demonstrate this, we will run:
+  
+perl clades_by_distance.pl -d Sal.example.dir <Sal.example.subtrees
+
+This generates a directory called, "Sal.example.dir", and inside the directory there are six files.  Each file contains a tab-delimited list of tips and the clade number.  *Note that the clade number is arbitrary.  It only exists as a label defnining which tips belong to which clades*  
 
 
 
