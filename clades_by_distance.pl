@@ -6,7 +6,7 @@ use Getopt::Long;
 
 my $usage = 'clades_by_distance.pl [options] file_of_subtrees
 	
-	The file of subtrees is generated from: all_subtrees.pl .	
+	The file of subtrees is generated from: all_subtrees.pl 	
 	-h help
 	-d directory with all dists 
 	
@@ -61,7 +61,7 @@ foreach (sort {$a <=> $b} keys %max_dists)
 	my %id_clade; 
 	
 	# sort the trees from smallest to largest as they come in, 
-	#this means that the large lades gobble up the small clades. 
+	#this means that the large clades gobble up the small clades. 
 	my %seen_tips = %all_tips;
 	foreach (sort {$n_tips{$a} <=> $n_tips{$b}} keys %n_tips)
 	{
@@ -100,7 +100,7 @@ foreach (sort {$a <=> $b} keys %max_dists)
 	}
 	
 
-	print STDERR "$max\t$nclades\t$ntips\n"; 
+	#print STDERR "$max\t$nclades\t$ntips\n"; 
 	open (OUT, ">$dir/$nclades.clades");
 	foreach (sort {$id_clade{$a} <=> $id_clade{$b}} keys %id_clade)
 	{
