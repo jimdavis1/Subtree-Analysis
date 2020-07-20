@@ -10,7 +10,7 @@ We will start by downloading and installing the PATRIC command line interface Ve
 After downloading, 1.025, drag it into your applications folder:
 ![PATRIC](https://raw.githubusercontent.com/jimdavis1/Subtree-Analysis/b3cde940eb2b63f621ec06d539690e47b176ad5d/Patric.png)
 
-It takes 1.38 MB of space.  On a mac, you may need to control-click to open the application, and then allow access to the terminal.
+It takes 1.38 GB of space.  On a mac, you may need to control-click to open the application, and then allow access to the terminal.
 
 The library is located in:
 ```Applications/PATRIC.app/deployment/lib/```
@@ -18,6 +18,25 @@ The library is located in:
 Now the easiest way to proceed is by launching the PATRIC.app.  This will initiate a new terminal window with all of the dependencies in the current path.  If you dislike this option, or you are working on a Linux or windows device, you will need to add the the contents of the PATRIC app to your path. If you are using bash, should be able to do this by typing:  
   
 ```source /Applications/PATRIC.app/user-env.sh```
+
+Go to your repo directory and let's quickly see if we got the download and path right by running:
+  
+```perl clades_by_distance.pl -h```
+
+If you have ```gjonewicklib.pm``` in your path, you will see the help menu for that script and not a warning.
+Typing:
+  
+```svr_tree_to_html -h```
+  
+Should also show a help menu. 
+
+
+
+
+
+
+
+
 
 
 
