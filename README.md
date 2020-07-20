@@ -32,7 +32,6 @@ Should also show a help menu.
 
 This GitHub repo contains four Newick-formatted phylogenetic trees: ```Kleb.nwk, Mtb.nwk, Sal.nwk, and Staph.nwk```, which are the phylogenetic trees that were built for the paper for *Klebsiella pneumoniae*, *Mycobacterium tuberculosis*, *Salmonella enterica*, and *Staphylococcus aureus* respectively.  These trees were built from concatenated alignments of 100 core conserved genes that are held in common across each species.  Nucleotide alignments were rendered using FastTree using the generalized time-reversible model.
 
-```perl -e 'use strict; use gjonewicklib; my $nwk = join( "", <> ); my $tree = gjonewicklib::parse_newick_tree_str( $nwk ); my @tips = &gjonewicklib::newick_tip_list($tree); foreach (@tips){print "$_\n"};'<Sal.nwk |head ```
 
 
 
