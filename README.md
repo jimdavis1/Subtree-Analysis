@@ -30,7 +30,7 @@ Typing:
   
 Should also show a help menu. 
 
-This repo contains 
+This GitHub repo contains four Newick-formatted phylogenetic trees: ```Kleb.nwk, Mtb.nwk, Sal.nwk, and Staph.nwk```, which are the phylogenetic trees that were built for the paper for *Klebsiella pneumoniae*, *Mycobacterium tuberculosis*, *Salmonella enterica*, and *Staphylococcus aureues* respectively.  
 
 
 
