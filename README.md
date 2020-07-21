@@ -7,17 +7,19 @@ The scripts in this repo have one major dependency, it is a perl module for mani
 
 We will start by downloading and installing the PATRIC command line interface Version 1.025 (or earlier) from the PATRIC GitHub repo:  https://github.com/PATRIC3/PATRIC-distribution/releases.  If you download the latest version, the tree analysis will still work, but it is missing a module for my favorite tree renderer, ```svr_tree_to_html```, which was written by Fangfang Xia and Gary Olsen. I am expecting this to get fixed in the 1.03 or later release. 
 
-After downloading, 1.025, drag it into your applications folder:
+If you are on a mac, simply drag the icon into your applications folder:
 ![PATRIC](https://github.com/jimdavis1/Subtree-Analysis/blob/0b00e64ae8ae3abd9766c47a26697f1258682ffe/patric.png)
 
-It takes 1.38 GB of space.  On a mac, you may need to control-click to open the application, and then allow access to the terminal.
+It takes 1.38 GB of space.  On a mac, you may need to control-click to open the application, and then allow access to the terminal.  If you are working from a linux or windows machine, you can download an appropriate distribution from the PATRIC GitHub. 
 
-The library is located in:
+In the mac installation, the library is located in:
 ```Applications/PATRIC.app/deployment/lib/```
 
-Now the easiest way to proceed is by launching the PATRIC.app.  This will initiate a new terminal window with all of the dependencies in the current path.  If you dislike this option, or you are working on a Linux or windows device, you will need to add the the contents of the PATRIC app to your path. If you are using bash, should be able to do this by typing:  
+Now the easiest way to proceed is by launching the PATRIC.app.  This will initiate a new terminal window with all of the dependencies in the current path.  If you dislike this option, or you are working on a linux or windows device, you will need to add the the contents of the PATRIC app to your path. If you are using bash, should be able to do this by typing:
   
 ```source /Applications/PATRIC.app/user-env.sh```
+
+The gjonewicklib perl module is located in ```/deployment/lib/``` if you want to view it or work with it separately. 
 
 Go to your repo directory and let's quickly see if we got the download and path right by running:
   
