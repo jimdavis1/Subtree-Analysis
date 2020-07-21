@@ -42,43 +42,68 @@ This creates a newick formatted subtree with 26 tips.  The file Sal.example.nwk 
   
 ```(( ( ( ( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550) 0.943: 0.000550, ( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100) 0.342: 0.000550) 1.000: 0.004590, ( SRR1534824: 0.000550, ( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100) 0.835: 0.001100) 1.000: 0.003840) 1.000: 0.001270, ( SRR2637879: 0.000550, ( SRR3664639: 0.000550, ( SRR3295726: 0.000550, SRR3056905: 0.000550) 0.000: 0.000550) 0.000: 0.001100) 0.832: 0.006220) 0.486;```
   
-The first program in this repo divides a tree file into all possible subtrees (including the whole tree, but excluding tips).  This is done simply by searching for open and closed parentheses, and it has not be tested on trees with node labels, so it should probably only be used in this context. 
+The first program in this repo divides a tree file into all possible subtrees. This file includes the entire tree, but does not consider each individual tip to be a subtree.  This is done simply by searching for open and closed parentheses.  This program has not be tested on trees with node labels, so it should probably only be used in this context. 
 
 typing 
 ```perl all_subtrees.pl <Sal.example.nwk >Sal.example.subtrees```
 
-Yeilds a file with all of the possible subtrees.  
-Here are they are:
+Yeilds the file with all of the possible subtrees.  
   
-```
-( SRR3295889: 0.000000, SRR2583949: 0.000000);
-( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550);
-( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550);
-( SRR3210384: 0.000550, SRR2981109: 0.001100);
-( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100);
-( ( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550) 0.943: 0.000550, ( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100) 0.342: 0.000550);
-( SRR1200749: 0.000550, SRR3057229: 0.000550);
-( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100);
-( SRR1202996: 0.001100, SRR3664861: 0.000550);
-( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550);
-( SRR3146664: 0.000550, SRR3932918: 0.000550);
-( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000);
-( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550);
-( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550);
-( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200);
-( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650);
-( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100);
-( SRR1534824: 0.000550, ( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100) 0.835: 0.001100);
-( ( ( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550) 0.943: 0.000550, ( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100) 0.342: 0.000550) 1.000: 0.004590, ( SRR1534824: 0.000550, ( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100) 0.835: 0.001100) 1.000: 0.003840);
-( SRR3295726: 0.000550, SRR3056905: 0.000550);
-( SRR3664639: 0.000550, ( SRR3295726: 0.000550, SRR3056905: 0.000550) 0.000: 0.000550);
-( SRR2637879: 0.000550, ( SRR3664639: 0.000550, ( SRR3295726: 0.000550, SRR3056905: 0.000550) 0.000: 0.000550) 0.000: 0.001100);
-( ( ( ( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550) 0.943: 0.000550, ( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100) 0.342: 0.000550) 1.000: 0.004590, ( SRR1534824: 0.000550, ( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100) 0.835: 0.001100) 1.000: 0.003840) 1.000: 0.001270, ( SRR2637879: 0.000550, ( SRR3664639: 0.000550, ( SRR3295726: 0.000550, SRR3056905: 0.000550) 0.000: 0.000550) 0.000: 0.001100) 0.832: 0.006220);
-```
-  
-The next program reads this file of all subtrees and creates a directory that lists each tip as a member of a subtree.  Subtrees are defined using a distance threshold.  The "distance" of each subtree is defined as the maximium tip distance, and the most inclusive subtree that can be built at a given distance is used. The tips, and their corresponding  "clade" or subtree is returned in the directory.  To demonstrate this, we will run:
+The next program reads the file of all subtrees and creates a directory that lists each tip as a member of a subtree or clade.  Subtrees are defined on the longest branch lenght of each subtree. The tips, and their corresponding  "clade" or subtree is returned in the directory.  To demonstrate this, we will run:
   
 ```perl clades_by_distance.pl -d Sal.example.dir <Sal.example.subtrees```
+
+The standard error looks like this:
+```DIST = 0	CLADES = 22
+DIST = 0.00055	CLADES = 18
+DIST = 0.0011	CLADES = 12
+DIST = 0.0022	CLADES = 9
+DIST = 0.00275	CLADES = 7
+DIST = 0.0033	CLADES = 6
+DIST = 0.00385	CLADES = 5
+DIST = 0.00495	CLADES = 4
+DIST = 0.00605	CLADES = 3
+DIST = 0.00989	CLADES = 2
+DIST = 0.01116	CLADES = 1```
+
+The "DIST" is the incremented tree disances that were tested. These are the unique max branch lengths of each subtree. The "CLADES" are the number of clades that were found at each distance.  A single tip may form a clade.  Note when distance is small there are many clades and as distance increases, the threshold becomes more inclusive and we get fewer clades until the whole tree is one clade.    
+
+The -d flag, which is required is a directory containing the clades defined at each distance.  It is formatted as "TipID\tCladeNumber\tDistance\n".  So if type:
+
+```cat Sal.example.dir/18.clades```
+  
+You will see:
+ 
+```SRR3933056	1	0.00055
+SRR3665234	1	0.00055
+SRR3664614	1	0.00055
+SRR3664684	1	0.00055
+SRR3295889	2	0.00055
+SRR2583962	2	0.00055
+SRR2583949	2	0.00055
+SRR1200749	3	0.00055
+SRR3057229	3	0.00055
+SRR3056905	4	0.00055
+SRR3295726	4	0.00055
+SRR3932918	5	0.00055
+SRR3146664	5	0.00055
+SRR1202996	6	0.00055
+SRR3664861	7	0.00055
+SRR3210384	8	0.00055
+SRR2981109	9	0.00055
+SRR2993804	10	0.00055
+SRR2566981	11	0.00055
+SRR2637879	12	0.00055
+SRR2638070	13	0.00055
+SRR1631196	14	0.00055
+SRR1914397	15	0.00055
+SRR1534824	16	0.00055
+SRR3664639	17	0.00055
+SRR2566885	18	0.00055```
+
+Where each tip is assigned to one of 18 possible clades. 
+
+
 
 This generates a directory called, "Sal.example.dir", and inside the directory there are six files.  Each file contains a tab-delimited list of tips and the clade number.  *Note that the clade number is arbitrary.  It only exists as a label defnining which tips belong to which clades.*  The files are named 1.clades through 6.clades.  1.clades is the most inclusive.  It is the set of clades for the largest distance threshold.  In other words, 1.clades is defining a subtree as the full original tree.  With each succesive file the distance gets smaller and the number of possible clades becomes larger. The program will not split zero-length branches. 
 
