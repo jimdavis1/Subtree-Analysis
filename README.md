@@ -36,7 +36,7 @@ This GitHub repo contains four Newick-formatted phylogenetic trees: ```Kleb.nwk,
 
 To demonstrate what was done, we will generate a toy example.  We will generate a subtree using a small set of genes from the original Salmonella tree.  Copy and paste the following perl one-liner into the command line.  
 
-```perl -e 'use gjonewicklib;  $nwk = join( "", <> );  $tree = gjonewicklib::parse_newick_tree_str( $nwk );  @tips = &gjonewicklib::newick_tip_list($tree);  @subset = @tips[0..25];  $newtree = newick_subtree( $tree,  @subset ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk
+```perl -e 'use gjonewicklib;  $nwk = join( "", <> );  $tree = gjonewicklib::parse_newick_tree_str( $nwk );  @tips = &gjonewicklib::newick_tip_list($tree);  @subset = @tips[0..25];  $newtree = newick_subtree( $tree,  @subset ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk```
 
 This creates a newick formatted subtree with 26 tips.  The file Sal.example.nwk looks like this:
   
