@@ -8,7 +8,7 @@ The scripts in this repo have one major dependency, it is a perl module for mani
 We will start by downloading and installing the PATRIC command line interface Version 1.025 (or earlier) from the PATRIC GitHub repo:  https://github.com/PATRIC3/PATRIC-distribution/releases.  If you download the latest version, the tree analysis will still work, but it is missing a module for my favorite tree renderer, ```svr_tree_to_html```, which was written by Fangfang Xia and Gary Olsen. I am expecting this to get fixed in the 1.03 or later release. 
 
 After downloading, 1.025, drag it into your applications folder:
-![PATRIC](https://raw.githubusercontent.com/jimdavis1/Subtree-Analysis/b3cde940eb2b63f621ec06d539690e47b176ad5d/Patric.png)
+![PATRIC](https://github.com/jimdavis1/Subtree-Analysis/blob/0b00e64ae8ae3abd9766c47a26697f1258682ffe/patric.png)
 
 It takes 1.38 GB of space.  On a mac, you may need to control-click to open the application, and then allow access to the terminal.
 
