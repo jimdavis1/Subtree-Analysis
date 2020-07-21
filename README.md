@@ -68,9 +68,9 @@ DIST = 0.00989	CLADES = 2
 DIST = 0.01116	CLADES = 1
 ```
 
-The "DIST" is the incremented tree disances that were tested. These are the unique max branch lengths of each subtree. The "CLADES" are the number of clades that were found at each distance.  A single tip may form a clade.  Note when distance is small there are many clades and as distance increases, the threshold becomes more inclusive and we get fewer clades until the whole tree is one clade.    
+The "DIST" is the incremented tree disances that were tested. These are the unique max branch lengths of each subtree. The "CLADES" are the number of clades that were found at each distance.  A single tip may form a clade.  Note that when the distance is small, there are many clades, and as distance increases, the threshold becomes more inclusive, and there are fewer clades.
 
-The -d flag, which is required is a directory containing the clades defined at each distance.  It is formatted as "TipID\tCladeNumber\tDistance\n".  So if type:
+The -d flag, which is required, is a directory containing the clades defined at each distance.  It is formatted as "TipID\tCladeNumber\tDistance\n".  So if type:
 
 ```cat Sal.example.dir/18.clades```
   
@@ -107,11 +107,7 @@ SRR2566885	18	0.00055
 
 Where each tip is assigned to one of 18 possible clades. 
 
-
-
-This generates a directory called, "Sal.example.dir", and inside the directory there are six files.  Each file contains a tab-delimited list of tips and the clade number.  *Note that the clade number is arbitrary.  It only exists as a label defnining which tips belong to which clades.*  The files are named 1.clades through 6.clades.  1.clades is the most inclusive.  It is the set of clades for the largest distance threshold.  In other words, 1.clades is defining a subtree as the full original tree.  With each succesive file the distance gets smaller and the number of possible clades becomes larger. The program will not split zero-length branches. 
-
-We will use a script from the PATRIC.app to color and render each subtree.  
+We will use a script from the PATRIC.app to color and render each subtree so that we can see what happened.  Type:  
   
 ```svr_tree_to_html -raw -c Sal.example.dir/2.clades <Sal.example.nwk >Sal.example.2.clades.html```
 
