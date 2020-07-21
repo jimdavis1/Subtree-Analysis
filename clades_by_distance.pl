@@ -64,7 +64,7 @@ my %all_tips = map{$_, 0}@all_tips;  #hash of all tips in the biggest tree
 foreach (sort {$a <=> $b} keys %max_dists)  
 {
 	my $max = $_; 
-	my $counter = 0; #<--- don't understand this yet. 
+	my $counter = 0; 
 	my %id_clade; 
 	
 	# sort the trees from smallest to largest as they come in, 
