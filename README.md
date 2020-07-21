@@ -34,7 +34,8 @@ This GitHub repo contains four Newick-formatted phylogenetic trees: ```Kleb.nwk,
 
 To demonstrate what was done, we will generate a toy example.  We will generate a subtree using a small set of genes from the original Salmonella tree.  Copy and paste the following perl one-liner into the command line.  
 
-```perl -e 'use strict; use gjonewicklib; my $nwk = join( "", <> ); my $tree = gjonewicklib::parse_newick_tree_str( $nwk ); my @tips = &gjonewicklib::newick_tip_list($tree); my @subset = @tips[0..25]; my $newtree = newick_subtree( $tree,  @subset ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk```
+```perl -e 'use strict; use gjonewicklib; my $nwk = join( "", <> ); my $tree = gjonewicklib::parse_newick_tree_str( $nwk ); my @tips = &gjonewicklib::newick_tip_list($tree); my @subset = @tips[0..25]; my $newtree = newick_subtree( $tree,  @subset ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk
+`` >Sal.example.2.clades.html```
 
 This creates a newick formatted subtree with 26 tips.  The file Sal.example.nwk looks like this:
   
@@ -76,13 +77,15 @@ Here are they are:
   
 The next program reads this file of all subtrees and creates a directory that lists each tip as a member of a subtree.  Subtrees are defined using a distance threshold.  The "distance" of each subtree is defined as the maximium tip distance, and the most inclusive subtree that can be built at a given distance is used. The tips, and their corresponding  "clade" or subtree is returned in the directory.  To demonstrate this, we will run:
   
-perl clades_by_distance.pl -d Sal.example.dir <Sal.example.subtrees
+```perl clades_by_distance.pl -d Sal.example.dir <Sal.example.subtrees```
 
-This generates a directory called, "Sal.example.dir", and inside the directory there are six files.  Each file contains a tab-delimited list of tips and the clade number.  *Note that the clade number is arbitrary.  It only exists as a label defnining which tips belong to which clades*  
+This generates a directory called, "Sal.example.dir", and inside the directory there are six files.  Each file contains a tab-delimited list of tips and the clade number.  *Note that the clade number is arbitrary.  It only exists as a label defnining which tips belong to which clades.*  The files are named 1.clades through 6.clades.  1.clades is the most inclusive.  It is the set of clades for the largest distance threshold.  In other words, 1.clades is defining a subtree as the full original tree.  With each succesive file the distance gets smaller and the number of possible clades becomes larger. The program will not split zero-length branches. 
 
+We will use a script from the PATRIC.app to color and render each subtree.  
+  
+```svr_tree_to_html -raw -c Sal.example.dir/2.clades <Sal.example.nwk >Sal.example.2.clades.html```
 
-
-
+The output can be viewed by opening it in a browser window. I will do this for each example, changing the -c option to color the original example tree based on the clades defined in ```Sal.example.dir```.
 
 
 
