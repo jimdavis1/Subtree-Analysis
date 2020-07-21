@@ -54,7 +54,8 @@ The next program reads the file of all subtrees and creates a directory that lis
 ```perl clades_by_distance.pl -d Sal.example.dir <Sal.example.subtrees```
 
 The standard error looks like this:
-```DIST = 0	CLADES = 22
+```
+DIST = 0	CLADES = 22
 DIST = 0.00055	CLADES = 18
 DIST = 0.0011	CLADES = 12
 DIST = 0.0022	CLADES = 9
@@ -64,7 +65,8 @@ DIST = 0.00385	CLADES = 5
 DIST = 0.00495	CLADES = 4
 DIST = 0.00605	CLADES = 3
 DIST = 0.00989	CLADES = 2
-DIST = 0.01116	CLADES = 1```
+DIST = 0.01116	CLADES = 1
+```
 
 The "DIST" is the incremented tree disances that were tested. These are the unique max branch lengths of each subtree. The "CLADES" are the number of clades that were found at each distance.  A single tip may form a clade.  Note when distance is small there are many clades and as distance increases, the threshold becomes more inclusive and we get fewer clades until the whole tree is one clade.    
 
@@ -74,7 +76,8 @@ The -d flag, which is required is a directory containing the clades defined at e
   
 You will see:
  
-```SRR3933056	1	0.00055
+```
+SRR3933056	1	0.00055
 SRR3665234	1	0.00055
 SRR3664614	1	0.00055
 SRR3664684	1	0.00055
@@ -99,7 +102,8 @@ SRR1631196	14	0.00055
 SRR1914397	15	0.00055
 SRR1534824	16	0.00055
 SRR3664639	17	0.00055
-SRR2566885	18	0.00055```
+SRR2566885	18	0.00055
+```
 
 Where each tip is assigned to one of 18 possible clades. 
 
