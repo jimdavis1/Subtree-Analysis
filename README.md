@@ -1,13 +1,14 @@
 # Subtree Analysis
-This readme will describe the subtrees were built in *Predicting antimicrobial resistance using conserved genes* by Nguyen et al.  It is intended to aid in the clarity and reproducibility of the analysis.
+  
+This readme will describe how the subtrees were built in  *Predicting antimicrobial resistance using conserved genes* by Nguyen et al.  It is intended to aid in the clarity and reproducibility of the analysis.
 
-In the analysis, we normalized genomes based on their distribution of susceptible and resistant genomes within a given subtree and by the total subtree size. Subtrees are defined at varying tree distances, which will be explained in further detail below. 
-
+In order to determine if strain diversity had an influence on the AMR phenotype prediction models, we built phylogenetic trees and normalized the contribution of each genome to the model based on the size of the subtree that it came from, as well as the distribution of susceptibile and resistant phenotypes for the genomes within each subtree. Models were then buit for subtrees defined at varying tree distances.  
+  
 We will start by downloading this repo. 
-
+  
 The scripts in this repo have one major dependency, it is a perl module for manipulating Newick formatted trees that was written by Gary Olsen, and was originally released as part of the code base for the SEED project. The module is called ```gjonewicklib.pm```.  The best way to get this module is to download the PATRIC command line interface application. I will use another script from that distribution to render the trees, but it is not a prerequisite. The other modules used by the perl scripts are GitOpt::Long and Data::Dumper, which are pretty standard for perl.
-
-We will start by downloading and installing the PATRIC command line interface Version 1.025 (or earlier) from the PATRIC GitHub repo:  https://github.com/PATRIC3/PATRIC-distribution/releases.  If you download the latest version, the tree analysis will still work, but it is missing a module for my favorite tree renderer, ```svr_tree_to_html```, which was written by Fangfang Xia and Gary Olsen. I am expecting this to get fixed in the 1.03 or later release. 
+  
+We will download and installing the PATRIC command line interface Version 1.025 (or earlier) from the PATRIC GitHub repo:  https://github.com/PATRIC3/PATRIC-distribution/releases.  If you download the latest version, the tree analysis will still work, but it is missing a module for my favorite tree renderer, ```svr_tree_to_html```, which was written by Fangfang Xia and Gary Olsen. I am expecting this to get fixed in the 1.03 or later release. 
 
 If you are on a mac, simply drag the icon into your applications folder:
 ![PATRIC](https://github.com/jimdavis1/Subtree-Analysis/blob/0b00e64ae8ae3abd9766c47a26697f1258682ffe/patric.png)
