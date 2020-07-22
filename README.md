@@ -15,7 +15,7 @@ It takes 1.38 GB of space.  On a mac, you may need to control-click to open the 
 In the mac installation, the library is located in:
 ```Applications/PATRIC.app/deployment/lib/```
 
-Now the easiest way to proceed is by launching the PATRIC.app.  This will initiate a new terminal window with all of the dependencies in the current path.  If you dislike this option, or you are working on a linux or windows device, you will need to add the the contents of the PATRIC app to your path. If you are using bash, should be able to do this by typing:
+Now the easiest way to proceed is by launching the PATRIC.app.  This will initiate a new terminal window with all of the dependencies in the current path.  If you dislike this option, or you are working on a linux or windows device, you will need to add the contents of the PATRIC app to your path. If you are using bash, should be able to do this by typing:
   
 ```source /Applications/PATRIC.app/user-env.sh```
 
@@ -38,7 +38,7 @@ To demonstrate what was done, we will generate a toy example.  We will generate 
 
 ```perl -e 'use gjonewicklib; $nwk = join( "", <> ); $tree = gjonewicklib::parse_newick_tree_str( $nwk ); @tips = &gjonewicklib::newick_tip_list($tree);  $newtree = newick_subtree( $tree, @tips[0..25] ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk```
 
-This creates a newick formatted subtree with 26 tips.  Our little script first reads the tree from STDIN, generates the appropriate data structure for the tree, makes an array of all of the tips in the tree,  generates a subtree for tips 0-25, and finally  renders the subtree in Newick format. 
+This creates a Newick formatted subtree with 26 tips.  Our little script first reads the tree from STDIN, generates the appropriate data structure for the tree, makes an array of all of the tips in the tree,  generates a subtree for tips 0-25, and finally  renders the subtree in Newick format. 
 
 The file Sal.example.nwk looks like this:
   
@@ -49,7 +49,7 @@ The first program in this repo divides a tree file into all possible subtrees.  
 typing 
 ```perl all_subtrees.pl <Sal.example.nwk >Sal.example.subtrees```
 
-Yeilds the file with all of the possible subtrees.  
+Yields the file with all of the possible subtrees.  
   
 The next program reads the file of all subtrees and creates a directory that lists each tip as a member of a subtree or clade. Type:
 
@@ -71,9 +71,9 @@ DIST = 0.01116	CLADES = 1
 
 ```
 The program works by computing the longest tip distance for each subtree.  Then for each of the distances, it finds the largest subtrees that are less than or equal to the given tip distance.  A file is made for each set of subtrees defined at each distance.   
-In the standard error, "DIST" is each of the incremented tree disances that were tested. The "CLADES" are the number of subtrees that were found at each distance.  A single tip will form its own clade when it is too distant to be part of a subtree containing other tips.  Note that when the distance is small, there are many clades, and as distance increases, the threshold becomes more inclusive, and there are fewer clades.
+In the standard error, "DIST" is each of the incremented tree distances that were tested. The "CLADES" are the number of subtrees that were found at each distance.  A single tip will form its own clade when it is too distant to be part of a subtree containing other tips.  Note that when the distance is small, there are many clades, and as distance increases, the threshold becomes more inclusive, and there are fewer clades.
 
-The ```-d``` flag, which is required, is the name of a directory containing the clades defined at each distance.  It is formatted as "TipID\tCladeNumber\tDistance\n".  So if type:
+The ```-d``` flag, which is required, is the name of a directory containing the clades defined at each distance.  It is formatted as "TipID\tCladeNumber\tDistance\n".  So, if type:
 
 ```cat Sal.example.dir/18.clades```
   
@@ -147,7 +147,7 @@ Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
 
 
-Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down. Also, the number of clades cannot be forced. In this example, there was no distance that yeilded 8 clades.
+Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down. Also, the number of clades cannot be forced. In this example, there was no distance that yielded 8 clades.
 
 In the paper we normalize clades by distribution of susceptible and resistant genomes within a clade and by the total clade size at varying distances. 
   
