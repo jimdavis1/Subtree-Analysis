@@ -11,10 +11,10 @@ my $usage = 'clades_by_distance.pl [options] file_of_subtrees
 	-h help
 	-d directory with all dists 
 	
-	This program lists taxa by grouped by tree distance.
+	This program lists taxa grouped by tree distance.
 	Tree distance is defined as the longest branch in the subtree.
 	The files in the output directory are formatted as:
-	 "TipID\tclade number\ttree_distance\n"; 
+	 "TipID\tCladeNumber\tTreeDistance\n"; 
 	
 	
 	
