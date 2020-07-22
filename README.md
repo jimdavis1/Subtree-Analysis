@@ -116,17 +116,24 @@ In order to illustrate the behavior, we will use a script from the PATRIC.app to
 svr_tree_to_html -raw -c Sal.example.dir/2.clades <Sal.example.nwk >Sal.example.2.clades.html
 ```
 
-The output can be viewed by opening it in a browser window. I will do this for each example, changing the -c option to color the original example tree based on the clades defined in ```Sal.example.dir```.
+The output can be viewed by opening it in a browser window. The -c option tells the program to color the  tree based on the clades defined in ```Sal.example.dir/2.clades```.
 
-svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.nwk >Sal.example.4.clades.html
+Here is what it looks like, with 2 clades defined at a distance of 0.00989.
+
+![2.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/2.clades.png) 
+
+Four clades, ```svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.nwk >Sal.example.4.clades.html``` looks like this:
+
+![4.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/4.clades.png)
+
+
 svr_tree_to_html -raw -c Sal.example.dir/6.clades <Sal.example.nwk >Sal.example.6.clades.html
 svr_tree_to_html -raw -c Sal.example.dir/9.clades <Sal.example.nwk >Sal.example.9.clades.html
 svr_tree_to_html -raw -nc 12 -c Sal.example.dir/12.clades <Sal.example.nwk >Sal.example.12.clades.html
 svr_tree_to_html -raw -nc 18 -c Sal.example.dir/18.clades <Sal.example.nwk >Sal.example.18.clades.html
 
 
-![2.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/2.clades.png) 
-![4.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/4.clades.png)
+
 ![6.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/6.clades.png)
 ![12.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/12.clades.png)
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
