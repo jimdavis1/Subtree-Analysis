@@ -116,18 +116,16 @@ In order to illustrate the behavior, we will use a script from the PATRIC.app to
 svr_tree_to_html -raw -c Sal.example.dir/2.clades <Sal.example.nwk >Sal.example.2.clades.html
 ```
 
-The output can be viewed by opening it in a browser window. The -c option tells the program to color the  tree based on the clades defined in ```Sal.example.dir/2.clades```.
+The output can be viewed by opening it in a browser window. The ```-c``` option tells the program to color the  tree based on the clades defined in ```Sal.example.dir/2.clades```.  The ```-raw``` option tells the program not to collapse zero-length branches.
 
 Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 
 ![2.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/2.clades.png) 
 
   
-  
 **Four clades**, ```svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.nwk >Sal.example.4.clades.html``` looks like this:
 
 ![4.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/4.clades.png)
-
   
   
 **Six clades:** ```svr_tree_to_html -raw -c Sal.example.dir/6.clades <Sal.example.nwk >Sal.example.6.clades.html```
@@ -149,6 +147,6 @@ Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
 
 
-
+Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down.
 
 
