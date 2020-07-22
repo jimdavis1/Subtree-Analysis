@@ -38,21 +38,21 @@ To demonstrate what was done, we will generate a toy example.  We will generate 
 
 ```perl -e 'use gjonewicklib; $nwk = join( "", <> ); $tree = gjonewicklib::parse_newick_tree_str( $nwk ); @tips = &gjonewicklib::newick_tip_list($tree);  $newtree = newick_subtree( $tree, @tips[0..25] ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk```
 
-This creates a newick formatted subtree with 26 tips.  Our little script first reads the tree from STDIN, generates the appropriate data structure for the tree, makes an array of all of the tips in the tree,  generates a subtree for tips 0-25, and finally  renders the subtree in newick format. 
+This creates a newick formatted subtree with 26 tips.  Our little script first reads the tree from STDIN, generates the appropriate data structure for the tree, makes an array of all of the tips in the tree,  generates a subtree for tips 0-25, and finally  renders the subtree in Newick format. 
 
 The file Sal.example.nwk looks like this:
   
 ```(( ( ( ( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550) 0.943: 0.000550, ( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100) 0.342: 0.000550) 1.000: 0.004590, ( SRR1534824: 0.000550, ( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100) 0.835: 0.001100) 1.000: 0.003840) 1.000: 0.001270, ( SRR2637879: 0.000550, ( SRR3664639: 0.000550, ( SRR3295726: 0.000550, SRR3056905: 0.000550) 0.000: 0.000550) 0.000: 0.001100) 0.832: 0.006220) 0.486;```
   
-The first program in this repo divides a tree file into all possible subtrees. This file includes the entire tree, but does not consider each individual tip to be a subtree.  This is done simply by searching for open and closed parentheses.  This program has not be tested on trees with node labels, so it should probably only be used in this context. 
+The first program in this repo divides a tree file into all possible subtrees.   This is done simply by searching for open and closed parentheses in the Newick file.   The resulting list of subtrees does not consider each individual tip to be a subtree.  It also lists the full tree as the final "subtree" on the last line of the file.  I should point out that this program has not been tested on trees with node labels, and it will probably fail in cases where tips contain parentheses.  Because of this, the script is only intended to be used in this context. 
 
 typing 
 ```perl all_subtrees.pl <Sal.example.nwk >Sal.example.subtrees```
 
 Yeilds the file with all of the possible subtrees.  
   
-The next program reads the file of all subtrees and creates a directory that lists each tip as a member of a subtree or clade.  Subtrees are defined on the longest branch lenght of each subtree. The tips, and their corresponding  "clade" or subtree is returned in the directory.  To demonstrate this, we will run:
-  
+The next program reads the file of all subtrees and creates a directory that lists each tip as a member of a subtree or clade. Type:
+
 ```perl clades_by_distance.pl -d Sal.example.dir <Sal.example.subtrees```
 
 The standard error looks like this:
@@ -68,11 +68,12 @@ DIST = 0.00495	CLADES = 4
 DIST = 0.00605	CLADES = 3
 DIST = 0.00989	CLADES = 2
 DIST = 0.01116	CLADES = 1
+
 ```
+The program works by computing the longest tip distance for each subtree.  Then for each of the distances, it finds the largest subtrees that are less than or equal to the given tip distance.  A file is made for each set of subtrees defined at each distance.   
+In the standard error, "DIST" is each of the incremented tree disances that were tested. The "CLADES" are the number of subtrees that were found at each distance.  A single tip will form its own clade when it is too distant to be part of a subtree containing other tips.  Note that when the distance is small, there are many clades, and as distance increases, the threshold becomes more inclusive, and there are fewer clades.
 
-The "DIST" is the incremented tree disances that were tested. These are the unique max branch lengths of each subtree. The "CLADES" are the number of clades that were found at each distance.  A single tip may form a clade.  Note that when the distance is small, there are many clades, and as distance increases, the threshold becomes more inclusive, and there are fewer clades.
-
-The -d flag, which is required, is a directory containing the clades defined at each distance.  It is formatted as "TipID\tCladeNumber\tDistance\n".  So if type:
+The ```-d``` flag, which is required, is the name of a directory containing the clades defined at each distance.  It is formatted as "TipID\tCladeNumber\tDistance\n".  So if type:
 
 ```cat Sal.example.dir/18.clades```
   
@@ -109,12 +110,18 @@ SRR2566885	18	0.00055
 
 Where each tip is assigned to one of 18 possible clades. 
 
-We will use a script from the PATRIC.app to color and render each subtree so that we can see what happened.  Type:  
+In order to illustrate the behavior, we will use a script from the PATRIC.app to color and render each subtree so that we can see what happened.  Type:  
   
-```svr_tree_to_html -raw -c Sal.example.dir/2.clades <Sal.example.nwk >Sal.example.2.clades.html```
+```
+svr_tree_to_html -raw -c Sal.example.dir/2.clades <Sal.example.nwk >Sal.example.2.clades.html
+```
 
 The output can be viewed by opening it in a browser window. I will do this for each example, changing the -c option to color the original example tree based on the clades defined in ```Sal.example.dir```.
 
-
+svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.nwk >Sal.example.4.clades.html
+svr_tree_to_html -raw -c Sal.example.dir/6.clades <Sal.example.nwk >Sal.example.6.clades.html
+svr_tree_to_html -raw -c Sal.example.dir/9.clades <Sal.example.nwk >Sal.example.9.clades.html
+svr_tree_to_html -raw -nc 12 -c Sal.example.dir/12.clades <Sal.example.nwk >Sal.example.12.clades.html
+svr_tree_to_html -raw -nc 18 -c Sal.example.dir/18.clades <Sal.example.nwk >Sal.example.18.clades.html
 
 
