@@ -126,17 +126,19 @@ Four clades, ```svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.n
 
 ![4.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/4.clades.png)
 
-
-svr_tree_to_html -raw -c Sal.example.dir/6.clades <Sal.example.nwk >Sal.example.6.clades.html
-svr_tree_to_html -raw -c Sal.example.dir/9.clades <Sal.example.nwk >Sal.example.9.clades.html
-svr_tree_to_html -raw -nc 12 -c Sal.example.dir/12.clades <Sal.example.nwk >Sal.example.12.clades.html
-svr_tree_to_html -raw -nc 18 -c Sal.example.dir/18.clades <Sal.example.nwk >Sal.example.18.clades.html
-
-
-
+Six clades:
 ![6.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/6.clades.png)
+
+Nine clades:
+![9.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/9.clades.png)
+
+Twelve clades ```svr_tree_to_html -raw -nc 12 -c Sal.example.dir/12.clades <Sal.example.nwk >Sal.example.12.clades.html``` (here we have to tell the program to start recycling colors with the ```-nc``` option).
 ![12.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/12.clades.png)
+
+Eighteen clades
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
+
+
 
 
 
