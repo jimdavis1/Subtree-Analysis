@@ -36,9 +36,11 @@ This GitHub repo contains four Newick-formatted phylogenetic trees: ```Kleb.nwk,
 
 To demonstrate what was done, we will generate a toy example.  We will generate a subtree using a small set of genes from the original Salmonella tree.  Copy and paste the following perl one-liner into the command line.  
 
-```perl -e 'use gjonewicklib;  $nwk = join( "", <> );  $tree = gjonewicklib::parse_newick_tree_str( $nwk );  @tips = &gjonewicklib::newick_tip_list($tree);  @subset = @tips[0..25];  $newtree = newick_subtree( $tree,  @subset ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk```
+```perl -e 'use gjonewicklib; $nwk = join( "", <> ); $tree = gjonewicklib::parse_newick_tree_str( $nwk ); @tips = &gjonewicklib::newick_tip_list($tree);  $newtree = newick_subtree( $tree, @tips[0..25] ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk```
 
-This creates a newick formatted subtree with 26 tips.  The file Sal.example.nwk looks like this:
+This creates a newick formatted subtree with 26 tips.  Our little script first reads the tree from STDIN, generates the appropriate data structure for the tree, makes an array of all of the tips in the tree,  generates a subtree for tips 0-25, and finally  renders the subtree in newick format. 
+
+The file Sal.example.nwk looks like this:
   
 ```(( ( ( ( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550) 0.943: 0.000550, ( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100) 0.342: 0.000550) 1.000: 0.004590, ( SRR1534824: 0.000550, ( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100) 0.835: 0.001100) 1.000: 0.003840) 1.000: 0.001270, ( SRR2637879: 0.000550, ( SRR3664639: 0.000550, ( SRR3295726: 0.000550, SRR3056905: 0.000550) 0.000: 0.000550) 0.000: 0.001100) 0.832: 0.006220) 0.486;```
   
