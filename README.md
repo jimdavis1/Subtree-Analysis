@@ -147,6 +147,12 @@ Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
 
 
-Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down.
+Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down. Also, the number of clades cannot be forced. In this example, there was no distance that yeilded 8 clades.
+
+In the paper we normalize clades by distribution of susceptible and resistant genomes within a clade and by the total clade size at varying distances. 
+  
+To get those clades, simply repeat the analysis using the full-sized trees. 
+
+
 
 
