@@ -131,6 +131,7 @@ Four clades, ```svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.n
   
   
 **Six clades:**
+  
 ![6.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/6.clades.png)
 
   
@@ -139,10 +140,12 @@ Four clades, ```svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.n
 
   
 **Twelve clades**, ```svr_tree_to_html -raw -nc 12 -c Sal.example.dir/12.clades <Sal.example.nwk >Sal.example.12.clades.html``` (here we have to tell the program to start recycling colors with the ```-nc``` option).
+  
 ![12.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/12.clades.png)
 
   
 **Eighteen clades**
+  
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
 
 
