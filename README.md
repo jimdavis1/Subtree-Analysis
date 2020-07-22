@@ -30,6 +30,26 @@ Go to your repo directory and let's quickly see if you got the download and path
   
 ```perl clades_by_distance.pl -h```
 
+After running this, you may run into an error saying that "PATRIC.app" cannot be opened because the developer cannot be verified.  Click "Cancel" (do *NOT* click "Move to Trash").  
+
+![Error0](Error0.png)
+
+Afterwards, open the settings app and from there navigate to "Security & Privacy."
+
+![Error1](Error1.png)
+
+You'll be entered into the Security and Privacy settings for your computer.  Make sure "General" is highlighted on the top bar that has entries for "General", "FileVault", "Firewall", and "Privacy".  If "General" is not highlighted, click on it and your screen should look like it does below.
+
+![Error2](Error2.png)
+
+Click on "Open Anyway" and another popup will appear saying that the developer of "PATRIC.app" cannot be verifed and if you want to proceed on opening it.  Click "Open"
+
+![Error3](Error3.png)
+
+This will open up a second terminal, you can close it and return to the one you were working on and rerun:
+
+```perl clades_by_distance.pl -h```
+
 If you have ```gjonewicklib.pm``` in your path, you will see the help menu for that script and not a warning.
 Typing:
   
