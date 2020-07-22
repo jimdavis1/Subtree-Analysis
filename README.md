@@ -124,7 +124,7 @@ Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 
   
   
-**Four clades**m=, ```svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.nwk >Sal.example.4.clades.html``` looks like this:
+**Four clades**, ```svr_tree_to_html -raw -c Sal.example.dir/4.clades <Sal.example.nwk >Sal.example.4.clades.html``` looks like this:
 
 ![4.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/4.clades.png)
 
@@ -144,7 +144,7 @@ Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 ![12.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/12.clades.png)
 
   
-**Eighteen clades:**```svr_tree_to_html -raw -nc 12 -c Sal.example.dir/12.clades <Sal.example.nwk >Sal.example.12.clades.html``` 
+**Eighteen clades:**```svr_tree_to_html -raw -nc 18 -c Sal.example.dir/18.clades <Sal.example.nwk >Sal.example.18.clades.html``` 
   
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
 
