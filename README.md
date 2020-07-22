@@ -150,7 +150,7 @@ Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
 
 
-Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down. Also, the number of clades cannot be forced. In this example, there was no distance that yielded 8 clades.  
+Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down. Also, the number of clades cannot be forced. For example, there was no distance that yielded 8 clades.  
   
 I should also point out that a subtree could be defined a several of different ways.  For instance, you could measure all tip-to-tip distances instead of the longest branch length, or you could measure the average distance against one tip.  We chose the longest branch length because it was simple and easy to compute.  It is possible that there could be conditions where this has undesirable behavior, but we have found that it works works reasonably well.
 
