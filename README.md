@@ -2,13 +2,13 @@
   
 This readme will describe how the subtrees were built in  *Predicting antimicrobial resistance using conserved genes* by Nguyen et al.  It is intended to aid in the clarity and reproducibility of the analysis.
 
-In order to determine if strain diversity had an influence on the AMR phenotype prediction models, we built phylogenetic trees and normalized the contribution of each genome to the model based on the size of the subtree that it came from, as well as the distribution of susceptibile and resistant phenotypes for the genomes within each subtree. Models were then buit for subtrees defined at varying tree distances.  
+In order to determine if strain diversity had an influence on the AMR phenotype prediction models, we built phylogenetic trees and normalized the contribution of each genome to each model based on the size of the subtree that it came from, as well as the distribution of susceptibile and resistant phenotypes for the genomes within each subtree. Models were then buit for subtrees defined at varying tree distances.  
   
 We will start by downloading this repo. 
   
 The scripts in this repo have one major dependency, it is a perl module for manipulating Newick formatted trees that was written by Gary Olsen, and was originally released as part of the code base for the SEED project. The module is called ```gjonewicklib.pm```.  The best way to get this module is to download the PATRIC command line interface application. I will use another script from that distribution to render the trees, but it is not a prerequisite. The other modules used by the perl scripts are GitOpt::Long and Data::Dumper, which are pretty standard for perl.
   
-We will download and installing the PATRIC command line interface Version 1.025 (or earlier) from the PATRIC GitHub repo:  https://github.com/PATRIC3/PATRIC-distribution/releases.  If you download the latest version, the tree analysis will still work, but it is missing a module for my favorite tree renderer, ```svr_tree_to_html```, which was written by Fangfang Xia and Gary Olsen. I am expecting this to get fixed in the 1.03 or later release. 
+We will download and install the PATRIC command line interface Version 1.025 (or earlier) from the PATRIC GitHub repo:  https://github.com/PATRIC3/PATRIC-distribution/releases.  If you download the latest version, the tree analysis will still work, but it is missing a module for my favorite tree renderer, ```svr_tree_to_html```, which was written by Fangfang Xia and Gary Olsen. I am expecting this to get fixed in the 1.03 or later release. 
 
 If you are on a mac, simply drag the icon into your applications folder:
 ![PATRIC](https://github.com/jimdavis1/Subtree-Analysis/blob/0b00e64ae8ae3abd9766c47a26697f1258682ffe/patric.png)
@@ -22,9 +22,9 @@ Now the easiest way to proceed is by launching the PATRIC.app.  This will initia
   
 ```source /Applications/PATRIC.app/user-env.sh```
 
-The gjonewicklib perl module is located in ```/deployment/lib/``` if you want to view it or work with it separately. 
+The gjonewicklib perl module is located in ```deployment/lib/``` if you want to view it or work with it separately. 
 
-Go to your repo directory and let's quickly see if we got the download and path right by running:
+Go to your repo directory and let's quickly see if you got the download and path right by running:
   
 ```perl clades_by_distance.pl -h```
 
@@ -37,7 +37,7 @@ Should also show a help menu.
 
 This GitHub repo contains four Newick-formatted phylogenetic trees: ```Kleb.nwk, Mtb.nwk, Sal.nwk, and Staph.nwk```, that were built for the paper for *Klebsiella pneumoniae*, *Mycobacterium tuberculosis*, *Salmonella enterica*, and *Staphylococcus aureus* respectively.  These trees were built from concatenated alignments of 100 core conserved genes that are held in common across each species.  Trees were generated using FastTree using the generalized time-reversible model.
 
-To demonstrate what was done, we will generate a toy example.  We will generate a subtree using a small set of genes from the original Salmonella tree.  Copy and paste the following perl one-liner into the command line.  
+To demonstrate what was done, we will generate a toy example.  We will generate a subtree using a small set of genes from the original Salmonella tree.  Copy and paste the following perl one-liner into the command line:  
 
 ```perl -e 'use gjonewicklib; $nwk = join( "", <> ); $tree = gjonewicklib::parse_newick_tree_str( $nwk ); @tips = &gjonewicklib::newick_tip_list($tree);  $newtree = newick_subtree( $tree, @tips[0..25] ); &gjonewicklib::writeNewickTree($newtree); '<Sal.nwk >Sal.example.nwk```
 
@@ -47,9 +47,10 @@ The file Sal.example.nwk looks like this:
   
 ```(( ( ( ( SRR1914397: 0.000550, ( ( SRR3295889: 0.000000, SRR2583949: 0.000000): 0.000550, SRR2583962: 0.000550) 0.000: 0.000550) 0.943: 0.000550, ( SRR2993804: 0.000550, ( SRR3210384: 0.000550, SRR2981109: 0.001100) 0.736: 0.001100) 0.342: 0.000550) 1.000: 0.004590, ( SRR1534824: 0.000550, ( ( ( SRR1200749: 0.000550, SRR3057229: 0.000550) 0.456: 0.000550, SRR1631196: 0.001100) 0.443: 0.000550, ( ( ( ( ( SRR1202996: 0.001100, SRR3664861: 0.000550) 0.000: 0.001100, SRR2638070: 0.000550) 0.000: 0.000550, ( ( SRR3146664: 0.000550, SRR3932918: 0.000550) 0.000: 0.000550, ( SRR3933056: 0.000000, SRR3664614: 0.000000, SRR3664684: 0.000000, SRR3665234: 0.000000): 0.000550) 0.000: 0.000550) 0.000: 0.000550, SRR2566885: 0.002200) 0.000: 0.000550, SRR2566981: 0.001650) 0.000: 0.001100) 0.835: 0.001100) 1.000: 0.003840) 1.000: 0.001270, ( SRR2637879: 0.000550, ( SRR3664639: 0.000550, ( SRR3295726: 0.000550, SRR3056905: 0.000550) 0.000: 0.000550) 0.000: 0.001100) 0.832: 0.006220) 0.486;```
   
-The first program in this repo divides a tree file into all possible subtrees.   This is done simply by searching for open and closed parentheses in the Newick file.   The resulting list of subtrees does not consider each individual tip to be a subtree.  It also lists the full tree as the final "subtree" on the last line of the file.  I should point out that this program has not been tested on trees with node labels, and it will probably fail in cases where tips contain parentheses.  Because of this, the script is only intended to be used in this context. 
+The first program in this repo divides a tree file into all possible subtrees.   This is done simply by searching for open and closed parentheses in the Newick file.   The program does not consider each individual tip to be a subtree.  It also lists the full tree as the final "subtree" on the last line of the file.  I should point out that this program has not been tested on trees with internal node labels, and it will probably fail in cases where tips contain parentheses.  Because of this, the script is only intended to be used in this context. 
 
-typing 
+typing:
+  
 ```perl all_subtrees.pl <Sal.example.nwk >Sal.example.subtrees```
 
 Yields the file with all of the possible subtrees.  
@@ -152,9 +153,9 @@ Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 
 Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down. Also, the number of clades cannot be forced. In this example, there was no distance that yielded 8 clades.  
   
-I should also point out that a subtree could be defined a several of different ways.  For instance, you could measure all tip-to-tip distances instead of the longest branch length, or you could measure the average distance against one tip.  We chose the longest branch length because it was simple and easy to compute.  It is possible that there could be conditions where this has undesirable behavior.
+I should also point out that a subtree could be defined a several of different ways.  For instance, you could measure all tip-to-tip distances instead of the longest branch length, or you could measure the average distance against one tip.  We chose the longest branch length because it was simple and easy to compute.  It is possible that there could be conditions where this has undesirable behavior, but we have found that it works works reasonably well.
 
-To get those clades, simply repeat the analysis using the full-sized trees supplied in this repo. 
+To get the set of clades used in our paper, simply repeat the analysis using the full-sized trees supplied in this repo. 
 
 
 
