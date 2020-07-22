@@ -125,3 +125,11 @@ svr_tree_to_html -raw -nc 12 -c Sal.example.dir/12.clades <Sal.example.nwk >Sal.
 svr_tree_to_html -raw -nc 18 -c Sal.example.dir/18.clades <Sal.example.nwk >Sal.example.18.clades.html
 
 
+![2.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/2.clades.png) 
+![4.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/4.clades.png)
+![6.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/6.clades.png)
+![12.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/12.clades.png)
+![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
+
+
+
