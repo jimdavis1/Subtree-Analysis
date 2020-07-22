@@ -1,5 +1,7 @@
 # Subtree Analysis
-This readme will describe the subtree analysis that was performed in *Predicting antimicrobial resistance using conserved genes* by Nguyen et al.  It is intended to aid in the clarity and reproducibility of the analysis. 
+This readme will describe the subtrees were built in *Predicting antimicrobial resistance using conserved genes* by Nguyen et al.  It is intended to aid in the clarity and reproducibility of the analysis.
+
+In the analysis, we normalized genomes based on their distribution of susceptible and resistant genomes within a given subtree and by the total subtree size. Subtrees are defined at varying tree distances, which will be explained in further detail below. 
 
 We will start by downloading this repo. 
 
@@ -147,11 +149,11 @@ Here is what it looks like, with 2 clades defined at a distance of 0.00989.
 ![18.clades](https://github.com/jimdavis1/Subtree-Analysis/blob/master/18.clades.png)
 
 
-Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down. Also, the number of clades cannot be forced. In this example, there was no distance that yielded 8 clades.
-
-In the paper we normalize clades by distribution of susceptible and resistant genomes within a clade and by the total clade size at varying distances. 
+Note that as the distance decreases, the number of clades goes up, and the size of each clade goes down. Also, the number of clades cannot be forced. In this example, there was no distance that yielded 8 clades.  
   
-To get those clades, simply repeat the analysis using the full-sized trees. 
+I should also point out that a subtree could be defined a several of different ways.  For instance, you could measure all tip-to-tip distances instead of the longest branch length, or you could measure the average distance against one tip.  We chose the longest branch length because it was simple and easy to compute.  It is possible that there could be conditions where this has undesirable behavior.
+
+To get those clades, simply repeat the analysis using the full-sized trees supplied in this repo. 
 
 
 
