@@ -22,7 +22,7 @@ Now the easiest way to proceed is by launching the PATRIC.app.  This will initia
   
 ```source /Applications/PATRIC.app/user-env.sh```
   
-Note that the location of the PATRIC.app will differ depending on your operating system. 
+Note that the location of the PATRIC.app may differ depending on your operating system or where you have decided to install it. 
 
 The gjonewicklib perl module is located in ```deployment/lib/``` if you want to view it or work with it separately. 
 
