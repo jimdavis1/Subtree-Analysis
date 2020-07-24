@@ -13,7 +13,7 @@ We will download and install the PATRIC command line interface Version 1.025 (or
 If you are on a mac, simply drag the icon into your applications folder:
 ![PATRIC](https://github.com/jimdavis1/Subtree-Analysis/blob/0b00e64ae8ae3abd9766c47a26697f1258682ffe/patric.png)
 
-It takes 1.38 GB of space.  On a mac, you may need to control-click to open the application, and then allow access to the terminal.  If you are working from a linux or windows machine, you can download an appropriate distribution from the PATRIC GitHub. 
+It takes 1.38 GB of space.  On a mac, you may need to control-click to open the application, and then allow access to the terminal.  If you are working from a linux or windows machine, you can download an appropriate distribution from the PATRIC GitHub. Installation will differ, but the organization of the repo will be the same. 
 
 In the mac installation, the library is located in:
 ```Applications/PATRIC.app/deployment/lib/```
