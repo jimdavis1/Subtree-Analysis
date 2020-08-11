@@ -6,25 +6,24 @@ In order to determine if strain diversity had an influence on the AMR phenotype 
   
 We will start by downloading this repo. 
   
-The scripts in this repo have one major dependency, it is a perl module for manipulating Newick formatted trees that was written by Gary Olsen, and was originally released as part of the code base for the SEED project. The module is called ```gjonewicklib.pm```.  The best way to get this module is to download the PATRIC command line interface application. I will use another script from that distribution to render the trees, but it is not a prerequisite. The other modules used by the perl scripts are GitOpt::Long and Data::Dumper, which are pretty standard for perl.
+The scripts in this repo have one major dependency, it is a perl module for manipulating Newick formatted trees that was written by Gary Olsen, and was originally released as part of the code base for the SEED project. The module is called ```gjonewicklib.pm```.  The easiest way to get this module is to download the PATRIC command line interface application. I will use another script from that distribution to render the trees, but it is not a prerequisite. The other modules used by the perl scripts are GitOpt::Long and Data::Dumper, which are pretty standard for perl.
   
-We will download and install the PATRIC command line interface Version 1.025 (or earlier) from the PATRIC GitHub repo:  https://github.com/PATRIC3/PATRIC-distribution/releases.  If you download the latest version, the tree analysis will still work, but it is missing a module for my favorite tree renderer, ```svr_tree_to_html```, which was written by Fangfang Xia and Gary Olsen. I am expecting this to get fixed in the 1.03 or later release. 
+We will download and install the PATRIC command line interface Version 1.031 from the PATRIC GitHub repo:  https://github.com/PATRIC3/PATRIC-distribution/releases.
 
-This readme will show how to download and install the PATRIC app on a mac.  If you are working from a linux or windows machine, you can download an appropriate distribution from the PATRIC GitHub link shown above. The installation will differ slightly, but the organization of the repo will be the same. 
+  
+The following steps will demo how to download and install the PATRIC app on a mac.  If you are working from a linux or windows machine, you can download an appropriate distribution from the link above. The installation steps will differ slightly, but the organization of the repo will be the same. 
 
 If you are on a mac, download the DMG, and simply drag the icon into your applications folder:
 ![PATRIC](https://github.com/jimdavis1/Subtree-Analysis/blob/0b00e64ae8ae3abd9766c47a26697f1258682ffe/patric.png)
 
-It takes 1.38 GB of space.  
-
-In the mac installation, the library is located in:
+In the standard mac installation, the library is located in:
 ```Applications/PATRIC.app/deployment/lib/```
 
-Now the easiest way to proceed is by launching the PATRIC.app.  This will initiate a new terminal window with all of the dependencies in the current path.  If you dislike this option, or you are working on a linux or windows device, you will need to add the contents of the PATRIC app to your path. If you are using bash, should be able to do this by typing:
+Now the easiest way to proceed is by launching the PATRIC.app from the applications folder.  This will initiate a new terminal window with all of the dependencies in the current path.  If you dislike this option, or you are working on a linux or windows device, you will need to add the contents of the PATRIC app to your path. If you are using bash, you should be able to do this by typing:
   
 ```source /Applications/PATRIC.app/user-env.sh```
   
-Note that the location of the ```user-env.sh``` will differ depending on your install location. 
+Note that the location of the ```PATRIC.app``` will differ depending on your install location. 
 
 The gjonewicklib perl module is located in ```deployment/lib/``` if you want to view it or work with it separately. 
 
