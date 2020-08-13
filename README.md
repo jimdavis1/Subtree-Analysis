@@ -99,7 +99,7 @@ DIST = 0.01116	CLADES = 1
 ```
 The program works by computing the longest tip distance for each subtree.  Then for each of the distances, it finds the largest subtrees that are less than or equal to the given tip distance.  A file is made for each set of subtrees defined at each distance.  In the standard error, "DIST" is each of the incremented tree distances that were tested. The "CLADES" are the number of subtrees that were found at each distance.  A single tip will form its own clade when it is too distant to be part of a subtree containing other tips.  Note that when the distance is small, there are many clades, and as distance increases, the threshold becomes more inclusive, and there are fewer clades.
 
-The ```-d``` flag, which is required, is the name of a directory containing the clades defined at each distance.  It is formatted as "TipID\tCladeNumber\tDistance\n".  So, if type:
+The ```-d``` flag, which is required, is the name of a directory containing the clades defined at each distance.  The files are formatted as "TipID\tCladeNumber\tDistance\n".  So, if you type:
 
 ```cat Sal.example.dir/18.clades```
   
