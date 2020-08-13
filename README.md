@@ -2,7 +2,7 @@
   
 This readme will describe how the subtrees were built in  *Predicting antimicrobial resistance using conserved genes* by Nguyen et al.  It is intended to aid in the clarity and reproducibility of the analysis.
 
-In order to determine if strain diversity had an influence on the AMR phenotype prediction models, we built phylogenetic trees and normalized the contribution of each genome to each model based on the size of the subtree that it came from, as well as the distribution of susceptibile and resistant phenotypes for the genomes within each subtree. Models were then buit for subtrees defined at varying tree distances.  
+In order to determine if strain diversity had an influence on the AMR phenotype prediction models, we built phylogenetic trees and normalized the contribution of each genome to each model based on the size of the subtree that it came from, as well as the distribution of susceptibile and resistant phenotypes for the genomes within each subtree. Models were then buit by normalizing the contribution of genomes belonging to subtrees defined at varying tree distances.  
   
 We will start by downloading this repo. 
   
